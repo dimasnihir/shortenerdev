@@ -17,3 +17,5 @@ define("PATH", $app_path );
 
 const ADMIN = PATH . '/admin';
 require_once(ROOT . '/autoload.php');
+
+require_once(ROOT. '/vendor/autoload.php');
