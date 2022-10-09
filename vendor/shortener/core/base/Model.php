@@ -1,8 +1,8 @@
 <?php
 
-namespace core\base;
+namespace shortener\base;
 
- use core\DataBase;
+ use shortener\DataBase;
 
  class Model
 {

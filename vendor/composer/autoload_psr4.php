@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Karan\\Shortenerdev\\' => array($baseDir . '/src'),
+    'shortener\\' => array($vendorDir . '/shortener/core'),
+    'app\\' => array($baseDir . '/app'),
 );

@@ -3,7 +3,7 @@
 
 
 
-use core\Router;
+use shortener\Router;
 
 
 Router::add('^admin$', ['controller'=> 'Main', 'action'=> 'index',

@@ -3,8 +3,8 @@
 
 namespace app\models;
 
-use core\base\Model;
-use core\DataBase;
+use shortener\base\Model;
+use shortener\DataBase;
 
 class ShortLink extends Model
 {

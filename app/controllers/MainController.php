@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 use app\models\ShortLink;
-use core\App;
-use \core\base\Controller;
-use core\Registry;
+use shortener\App;
+use \shortener\base\Controller;
+use shortener\Registry;
 
 class MainController extends Controller
 {
