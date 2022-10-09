@@ -1,15 +1,9 @@
 {
-  "name": "$vendor_name$/$package_name$",
-  "description": "$description$",
-  "minimum-stability": "$stability$",
-  "license": "$license$",
-  "authors": [
-    {
-      "name": "$author$",
-      "email": "$email$"
-    }
-  ],
-  "require": {
-    $END$
-  }
+    "name": "karan/shortenerdev",
+    "autoload": {
+        "psr-4": {
+            "Karan\\Shortenerdev\\": "src/"
+        }
+    },
+    "require": {}
 }
