@@ -11,6 +11,6 @@ namespace shortener\base;
     public $rules = [];
 
     public function __construct() {
-        DataBase::instance();
+//        DataBase::instance();
     }
 }
