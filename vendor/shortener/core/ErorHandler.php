@@ -4,7 +4,7 @@
 namespace shortener;
 
 
-class ErorHandler
+class   ErorHandler
 {
     public function __construct() {
         if(DEBUG) {

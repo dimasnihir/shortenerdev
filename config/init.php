@@ -9,7 +9,7 @@ const CACHE = ROOT . '/tmp/cache';
 const CONFIG = ROOT . '/config';
 const LAYOUT = 'default';
 
-$app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
+$app_path = "https://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
 $app_path = preg_replace("#[^/]+$#", '', $app_path);
 $app_path = str_replace('/public/', '', $app_path);
 
