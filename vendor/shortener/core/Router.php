@@ -49,6 +49,9 @@ class Router {
 
 //    Метод проверяет существует ли заданый маршрут
     public  static function matchRoute($url) {
+        if (!isset($url)) {
+            $url = '';
+        }
         foreach (self::$routes as $pattern => $route) {
 
             if(preg_match("#{$pattern}#", $url, $matches)) {
