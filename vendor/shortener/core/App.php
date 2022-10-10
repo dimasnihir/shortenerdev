@@ -12,7 +12,6 @@ class App
      public function __construct()
      {
           $query = trim($_SERVER['QUERY_STRING'], '/');
-        echo '!!!';
          session_start();
 
          self::$app = Registry::instance();
