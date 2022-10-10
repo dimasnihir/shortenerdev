@@ -41,15 +41,15 @@ class ShortLink extends Model
             return $shortLink;
         } else {
             return self::getShortLink($longLink)['short_url'];
-            }
+        }
     }
 
-    public static function getShortLink($longLink) {
+    static function getShortLink($longLink) {
         return DataBase::getRow("SELECT `short_url` FROM `urls` WHERE `long_url` = ?", [$longLink]);
 
     }
 
-    private static function isNotShortLink($link) {
+    static function isNotShortLink($link) {
         $link = DataBase::getRow("SELECT * FROM `urls` WHERE `short_url` = ?", [$link]);
         if (!$link) {
             return 1;
@@ -58,7 +58,16 @@ class ShortLink extends Model
         }
     }
 
-    private static function isNotLongLink($link) {
+    static function getLongLink($shortLink) {
+        $link = DataBase::getRow("SELECT `long_url` FROM `urls` WHERE `short_url` = ?", [$shortLink]);
+        if ($link) {
+            return $link['long_url'];
+        } else {
+            return 0;
+        }
+    }
+
+    static function isNotLongLink($link) {
         $link = DataBase::getRow("SELECT * FROM `urls` WHERE `long_url` = ?", [$link]);
         if (!$link) {
             return 1;
