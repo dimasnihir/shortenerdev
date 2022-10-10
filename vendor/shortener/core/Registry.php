@@ -10,6 +10,7 @@ class Registry
 
 
 
+    
 
     protected static $properties = [];
 
