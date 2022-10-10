@@ -34,21 +34,26 @@ class Router {
                 $action = self::lowerCamelCase(self::$route['action']) . 'Action';
 
                 if (method_exists($controllerObject, $action)) {
+
                     $controllerObject ->$action();
-                    $controllerObject->getView();
+//                  $controllerObject->getView();
+
                 } else {
                     throw new \Exception("Метод $controller::$action не найден", 404);
                 }
              } else {
                  throw new \Exception("Контроллер $controller не найден", 404);
              }
+
         }else{
+
             throw new \Exception("Страница не найдена", 404);
         }
     }
 
 //    Метод проверяет существует ли заданый маршрут
     public  static function matchRoute($url) {
+
         if (!isset($url)) {
             $url = '';
         }
