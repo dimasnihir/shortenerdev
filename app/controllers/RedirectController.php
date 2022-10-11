@@ -19,6 +19,7 @@ class RedirectController extends Controller
         var_dump($shortLink);
         if (!ShortLink::isNotShortLink($shortLink)) {
             $longLink = ShortLink::getLongLink($shortLink);
+            var_dump($longLink);
             header("Location: {$longLink}");
         } else {
             throw new \Exception("Страница не найдена", 404);
