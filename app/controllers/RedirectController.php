@@ -16,8 +16,8 @@ class RedirectController extends Controller
             $longLink = ShortLink::getLongLink($shortLink);
             var_dump($shortLink);
             var_dump($longLink);
-//            header("Location: https://github.com/dimasnihir/ishop");
-//            die();
+            header("Location: https://github.com/dimasnihir/ishop");
+            die();
 
 //            header("Location: {$longLink}");
         } else {
