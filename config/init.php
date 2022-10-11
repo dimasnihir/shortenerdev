@@ -1,6 +1,6 @@
 <?php
 
-const DEBUG = 0;
+const DEBUG = 1;
 define("ROOT", dirname(__DIR__));
 const WWW = ROOT . '/public';
 const APP = ROOT . '/app';
