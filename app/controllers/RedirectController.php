@@ -13,12 +13,10 @@ class RedirectController extends Controller
         $shortLink = $_SERVER['HTTP_HOST'] . '/' . $this->route['token'];
         if (!ShortLink::isNotShortLink($shortLink)) {
             $longLink = ShortLink::getLongLink($shortLink);
-            header("Location: https://github.com/dimasnihir/ishop");
+            header("Location: {$longLink}");
             die();
-
-//            header("Location: {$longLink}");
         } else {
-//            throw new \Exception("Страница не найдена", 404);
+            throw new \Exception("Страница не найдена", 404);
         }
     }
 }
