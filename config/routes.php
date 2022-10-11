@@ -18,5 +18,5 @@ Router::add('^(?P<token>[a-zA-z0-9-]{5})$', ['controller'=> 'Redirect', 'action'
 
 
 
-//Router::add('^$', ['controller'=> 'Main', 'action'=> 'index']);
+Router::add('^$', ['controller'=> 'Main', 'action'=> 'index']);
 Router::add("^(?P<controller>[a-z-]+)(\/)?(?P<action>[a-z-]+)?$");

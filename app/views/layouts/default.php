@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <LINK rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <LINK rel="stylesheet" href="/css/style.css">
 
 
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
 <!-- Начало уведомления Copied -->
 <div class="alert alert-success alert-copy d-flex flex-row align-items-center" role="alert">
     <span>
-      <img src="img/check-circle.svg" alt="">
+      <img src="/img/check-circle.svg" alt="">
     </span>
     <span>&nbsp&nbsplink copied!</span>
 </div>
@@ -42,7 +42,7 @@
 
 </body>
 
-<script src="js/bootstrap.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 <!-- Скрипт копирования короткой ссылки -->
 <script>
