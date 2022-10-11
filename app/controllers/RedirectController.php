@@ -13,6 +13,7 @@ class RedirectController extends Controller
         $shortLink = $_SERVER['HTTP_HOST'] . '/' . $this->route['token'];
         if (!ShortLink::isNotShortLink($shortLink)) {
             $longLink = ShortLink::getLongLink($shortLink);
+            var_dump($longLink);
             header("Location: {$longLink}");
             die();
         } else {
