@@ -22,13 +22,14 @@ class Router {
 
 //    Медот подключает контроллер, вид, исходя из маршрута
     public static function dispatch($url) {
-    
+
         $url = self::removeQueryString($url);
 
         if(self::matchRoute($url)){
             var_dump(self::$route);
 
             $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            var_dump($controller);
 
             if(class_exists($controller)) {
                 $controllerObject = new $controller(self::$route);
