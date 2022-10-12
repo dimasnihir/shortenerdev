@@ -26,6 +26,7 @@ class Router {
         $url = self::removeQueryString($url);
 
         if(self::matchRoute($url)){
+            var_dump($url);
 
             $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
 
