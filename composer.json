@@ -2,8 +2,8 @@
     "name": "karan/shortenerdev",
     "autoload": {
         "psr-4": {
-            "shortener\\"  : "vendor/shortener/core",
-            "app\\" : "app/"
+            "shortener\\"  : "vendor\\shortener\\core",
+            "app\\" : "app"
         }
     },
 
