@@ -26,10 +26,7 @@ class Router {
         $url = self::removeQueryString($url);
 
         if(self::matchRoute($url)){
-            var_dump(self::$route);
-
             $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
-            var_dump($controller);
 
             if(class_exists($controller)) {
                 $controllerObject = new $controller(self::$route);
@@ -38,7 +35,6 @@ class Router {
                 if (method_exists($controllerObject, $action)) {
 
                     $controllerObject ->$action();
-//                  $controllerObject->getView();
 
                 } else {
                     throw new \Exception("Метод $controller::$action не найден", 404);
@@ -46,9 +42,7 @@ class Router {
             } else {
                 throw new \Exception("Контроллер $controller не найден", 404);
             }
-
         }else{
-
             throw new \Exception("Страница не найдена", 404);
         }
     }
