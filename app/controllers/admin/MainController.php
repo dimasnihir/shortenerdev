@@ -1,13 +1,13 @@
 <?php
 
 
-namespace app\controllers;
+namespace app\controllers\admin;
 
 
 use app\models\ShortLink;
 use shortener\base\Controller;
 
-class mainController extends Controller
+class MainController extends Controller
 {
     public function indexAction() {
 
