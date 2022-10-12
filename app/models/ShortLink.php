@@ -3,6 +3,7 @@
 
 namespace app\models;
 
+use DateTime;
 use shortener\base\Model;
 use shortener\DataBase;
 
@@ -40,6 +41,7 @@ class ShortLink extends Model
             DataBase::sql($query, $args);
             return $shortLink;
         } else {
+            ShortLink::updateDateLink($longLink);
             return self::getShortLink($longLink)['short_url'];
         }
     }
@@ -58,10 +60,24 @@ class ShortLink extends Model
         }
     }
 
+    static function isShortLinkActive($shortLink) {
+        $link = ShortLink::getLongLink($shortLink);
+        $date = $link['date'];
+
+        $dateDelete = new DateTime( $date);
+        $dateDelete->modify('+3 DAYS');
+        $dateNow = new DateTime();
+        if ($dateNow >= $dateDelete) {
+            ShortLink::delShortLink($link['short_url']);
+            return false;
+        }
+        return true;
+    }
+
     static function getLongLink($shortLink) {
-        $link = DataBase::getRow("SELECT `long_url` FROM `urls` WHERE `short_url` = ?", [$shortLink]);
+        $link = DataBase::getRow("SELECT * FROM `urls` WHERE `short_url` = ?", [$shortLink]);
         if ($link) {
-            return $link['long_url'];
+            return $link;
         } else {
             return 0;
         }
@@ -74,5 +90,21 @@ class ShortLink extends Model
         } else {
             return 0;
         }
+    }
+
+    static function getAllLinks() {
+        return DataBase::getRows('SELECT * FROM `urls`');
+    }
+
+    static function delShortLink($shortLink) {
+        DataBase::sql('DELETE FROM `urls` WHERE `short_url` = ?', [$shortLink]);
+    }
+
+    static function delNoActiveLinks() {
+        DataBase::sql('DELETE FROM `urls` WHERE `date` <= now() - interval (3*60*24) minute');
+    }
+
+    static function updateDateLink($longLink) {
+        DataBase::sql('UPDATE `urls` SET `date`= NOW() WHERE `long_url` = ?', [$longLink]);
     }
 }
