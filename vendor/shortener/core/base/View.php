@@ -31,7 +31,11 @@ class View
     public function render($data) {
         if(is_array($data)) extract($data);
 
-        $viewFile = APP . "\\views\\{$this->prefix}{$this->controller}\\{$this->view}.php";
+        if ($this->prefix === 'admin\\') {
+            $this->prefix = 'admin/';
+        }
+
+        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
 
         if(is_file($viewFile)) {
             ob_start();
