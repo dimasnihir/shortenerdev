@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "shortener\\"  : "vendor/shortener/core",
-            "app\\" : "app"
+            "app\\" : "app/"
         }
     },
 
