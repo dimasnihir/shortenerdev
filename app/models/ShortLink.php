@@ -107,4 +107,12 @@ class ShortLink extends Model
     static function updateDateLink($longLink) {
         DataBase::sql('UPDATE `urls` SET `date`= NOW() WHERE `long_url` = ?', [$longLink]);
     }
+
+    static function addItemInStory($shortLink, $ip, $user_agent) {
+        DataBase::sql('INSERT INTO `story` (`date`, `short_url`, `ip`, `user_agent`) VALUES (NOW(), :short_url, :ip, :user_agent)',
+        ['short_url' =>$shortLink,
+        'ip' => $ip,
+        'user_agent' => $user_agent]);
+
+    }
 }
